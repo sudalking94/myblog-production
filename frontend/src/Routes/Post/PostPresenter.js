@@ -27,7 +27,35 @@ const CreatedAt = styled.span`
   font-size: smaller;
 `;
 
-const PostContents = styled.p`
+const PostContentsContainer = styled.div`
+  p,
+  br,
+  li {
+    margin-bottom: 10px;
+  }
+  ol {
+    list-style: decimal;
+  }
+  ul {
+    list-style: unset;
+  }
+  li > ol {
+    list-style: inside;
+    list-style-type: decimal;
+  }
+
+  table {
+    background-color: rgb(226, 220, 220);
+    border-radius: 10px;
+    display: block;
+    padding: 10px 10px 0 10px;
+  }
+  table ul {
+    list-style: inside;
+  }
+`;
+
+const PostContents = styled.div`
   padding: 100px 0;
 `;
 const Section = styled.div``;
@@ -64,18 +92,20 @@ const PostPresenter = ({ post, photos }) => {
       <CreatedAt>
         <Moment format="YYYY년 MM월 DD일">{post.createdAt}</Moment>
       </CreatedAt>
-      <PostContents dangerouslySetInnerHTML={{ __html: post.content }} />
-      <Section>
-        {photos.map((photo) => (
-          <PhotoContainer key={photo.id}>
-            <PhotoCaption>{photo.caption}</PhotoCaption>
-            <PhotoImg bgUrl={`${photo.file}`} />
-            <PhotoDescription
-              dangerouslySetInnerHTML={{ __html: photo.content }}
-            />
-          </PhotoContainer>
-        ))}
-      </Section>
+      <PostContentsContainer>
+        <PostContents dangerouslySetInnerHTML={{ __html: post.content }} />
+        <Section>
+          {photos.map((photo) => (
+            <PhotoContainer key={photo.id}>
+              <PhotoCaption>{photo.caption}</PhotoCaption>
+              <PhotoImg bgUrl={`${photo.file}`} />
+              <PhotoDescription
+                dangerouslySetInnerHTML={{ __html: photo.content }}
+              />
+            </PhotoContainer>
+          ))}
+        </Section>
+      </PostContentsContainer>
     </PostContainer>
   );
 };
