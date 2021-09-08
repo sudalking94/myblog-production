@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('sudalking94/', admin.site.urls),
     path('',TemplateView.as_view(template_name='index.html')),
     path('api/v1/posts/', include("base.urls.post_urls")),
     path('api/v1/categories/', include("base.urls.category_urls")),    
