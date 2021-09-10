@@ -23,7 +23,8 @@ import os
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG",default=False) == 'True'
+DEBUG = os.environ.get("DEBUG") == 'True'
+
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','myblog-env.eba-c2jikfp3.ap-northeast-2.elasticbeanstalk.com']
 
@@ -47,7 +48,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",        
+    "corsheaders.middleware.CorsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
