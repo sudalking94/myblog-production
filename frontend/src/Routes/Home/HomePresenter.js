@@ -3,6 +3,7 @@ import mypic from "../../static/images/전준우.jpg";
 import styled from "styled-components";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
+import { removeTag } from "../../components/removeTag";
 
 const HomeContainer = styled.div`
   padding-top: 50px;
@@ -96,6 +97,7 @@ const PostTitle = styled.h2`
 
 const PostContent = styled.h5`
   opacity: 0.7;
+  line-height: 25px;
 `;
 
 const PostCreatedAt = styled.div`
@@ -113,10 +115,6 @@ const MoreRead = styled(Link)`
 `;
 
 const HomePresenter = ({ post, category, categoryHandler, categoryId }) => {
-  const removeTag = (content) => {
-    const regex = /(<([^>]+)>)/gi;
-    return content.replace(regex, "");
-  };
   function changeColor(id) {
     const Eid = document.getElementById(id);
     Eid.style.backgroundColor = "skyblue";
@@ -173,9 +171,12 @@ const HomePresenter = ({ post, category, categoryHandler, categoryId }) => {
           <Link className="post-link" to={`/posts/${p._id}`} key={p._id}>
             <Posts className="popular-post">
               <PostTitle className="post-title">{p.title}</PostTitle>
-              <PostContent className="post-content">
-                {removeTag(p.content).toString().substring(0, 100)}...
-              </PostContent>
+              <PostContent
+                className="post-content"
+                dangerouslySetInnerHTML={{
+                  __html: removeTag(p.content),
+                }}
+              />
               <PostCreatedAt className="createdAt">
                 <Moment format="YYYY년MM월DD일">{p.createdAt}</Moment>
               </PostCreatedAt>

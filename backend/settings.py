@@ -23,7 +23,7 @@ import os
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG",default=False) == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1','localhost','myblog-env.eba-c2jikfp3.ap-northeast-2.elasticbeanstalk.com']
 
@@ -92,12 +92,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3"
-#     }
-# }
 
 
 # Password validation
@@ -174,6 +168,3 @@ TINYMCE_DEFAULT_CONFIG = {
     "alignright alignjustify | bullist numlist outdent indent | "
     "removeformat | help",
 }
-
-if os.getcwd() == '/app':
-    DEBUG = False

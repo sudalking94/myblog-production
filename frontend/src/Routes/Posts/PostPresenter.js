@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
+import { removeTag } from "../../components/removeTag";
 
 const Container = styled.div`
   width: 60%;
@@ -30,6 +31,7 @@ const PostTitle = styled.h2`
 
 const PostContent = styled.h5`
   opacity: 0.7;
+  line-height: 25px;
 `;
 
 const PostCreatedAt = styled.div`
@@ -113,10 +115,6 @@ const PostPresenter = ({
     }
   }
 
-  const removeTag = (content) => {
-    const regex = /(<([^>]+)>)/gi;
-    return content.replace(regex, "");
-  };
   return (
     <Container className="board-container">
       <PostContainer>
@@ -124,9 +122,12 @@ const PostPresenter = ({
           <Link className="post-link" to={`/posts/${p._id}`} key={p._id}>
             <Posts className="popular-post">
               <PostTitle className="post-title">{p.title}</PostTitle>
-              <PostContent className="post-content">
-                {removeTag(p.content).toString().substring(0, 100)}...
-              </PostContent>
+              <PostContent
+                className="post-content"
+                dangerouslySetInnerHTML={{
+                  __html: removeTag(p.content),
+                }}
+              ></PostContent>
               <PostCreatedAt className="createdAt">
                 <Moment format="YYYY년MM월DD일">{p.createdAt}</Moment>
               </PostCreatedAt>

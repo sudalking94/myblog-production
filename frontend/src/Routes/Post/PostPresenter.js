@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Moment from "react-moment";
+import PostContentsContainer from "../../components/PostContentsContainer";
 
 const PostContainer = styled.div`
   padding-top: 50px;
@@ -25,34 +26,6 @@ const CreatedAt = styled.span`
   width: 100%;
   text-align: end;
   font-size: smaller;
-`;
-
-const PostContentsContainer = styled.div`
-  p,
-  br,
-  li {
-    margin-bottom: 10px;
-  }
-  ol {
-    list-style: decimal;
-  }
-  ul {
-    list-style: unset;
-  }
-  li > ol {
-    list-style: inside;
-    list-style-type: decimal;
-  }
-
-  table {
-    background-color: rgb(226, 220, 220);
-    border-radius: 10px;
-    display: block;
-    padding: 10px 10px 0 10px;
-  }
-  table ul {
-    list-style: inside;
-  }
 `;
 
 const PostContents = styled.div`
