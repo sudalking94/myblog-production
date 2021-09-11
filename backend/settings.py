@@ -27,9 +27,7 @@ DEBUG = os.environ.get("DEBUG") == 'True'
 
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',    
-    'myblog-env.eba-c2jikfp3.ap-northeast-2.elasticbeanstalk.com',
-    '15.165.115.127',
+    '127.0.0.1',            
     'j-blog.shop',
     'www.j-blog.shop'
 ]
