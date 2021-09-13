@@ -143,7 +143,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "/media/"
 
-# STATICFILES_DIRS 왜 있는지 모르겠음 없어도 local에서 작동됨 production은 모름
 STATICFILES_DIRS = [
     BASE_DIR / 'frontend/build/static'
 ]
@@ -153,7 +152,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS_ALLOW_ALL_ORIGINS 왜 있는지 모름 안해도 작동됨
 CORS_ALLOW_ALL_ORIGINS = True
 
 AWS_QUERYSTRING_AUTH = False

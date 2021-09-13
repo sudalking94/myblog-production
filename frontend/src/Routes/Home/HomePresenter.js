@@ -7,7 +7,7 @@ import { removeTag } from "../../components/removeTag";
 
 const HomeContainer = styled.div`
   padding-top: 50px;
-  height: 100vh;
+  min-height: 100vh;
   width: 60%;
   margin: 0 auto;
 
@@ -87,7 +87,7 @@ const PostContainer = styled.div`
 const Posts = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   width: 100%;
-  height: 150px;
+  min-height: 200px;
   position: relative;
 `;
 
@@ -107,7 +107,7 @@ const PostCreatedAt = styled.div`
 `;
 
 const MoreReadContainer = styled.div`
-  margin: 10px 0;
+  padding: 10px 0;
 `;
 const MoreRead = styled(Link)`
   color: skyblue;

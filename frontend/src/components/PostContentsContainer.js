@@ -9,16 +9,20 @@ const Contents = styled.div`
   ul {
     list-style: unset;
   }
+  li,
   li > ol {
     list-style: inside;
-    list-style-type: decimal;
   }
 
   table {
     background-color: rgb(226, 220, 220);
     border-radius: 10px;
     display: block;
-    padding: 10px 10px 0 10px;
+    padding: 10px;
+    overflow-x: scroll;
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
   }
   table ul {
     list-style: inside;
