@@ -51,17 +51,7 @@ const Globalstyles = createGlobalStyle`
     color: unset;
   text-decoration: none;
   }
-  @media screen and (max-width: 800px) {
-    .board-container {
-      grid-template-columns: 1fr;
-      width: 100%;            
-    }
-
-    .category-container {
-      margin-top: 10px;
-      height: fit-content;            
-    }
-
+  @media screen and (max-width: 800px) {        
     .createdAt {
       bottom: 5px;
     }

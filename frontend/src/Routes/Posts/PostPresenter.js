@@ -10,6 +10,11 @@ const Container = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `;
 
 const PostContainer = styled.div`
@@ -47,6 +52,11 @@ const CategoryContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 800px) {
+    margin-top: 10px;
+    height: fit-content;
+  }
 `;
 const SearchBoxForm = styled.form`
   width: 90%;
@@ -116,7 +126,7 @@ const PostPresenter = ({
   }
 
   return (
-    <Container className="board-container">
+    <Container>
       <PostContainer>
         {post.map((p) => (
           <Link className="post-link" to={`/posts/${p._id}`} key={p._id}>
@@ -136,7 +146,7 @@ const PostPresenter = ({
         ))}
         {post.length > 0 && paginator}
       </PostContainer>
-      <CategoryContainer className="category-container">
+      <CategoryContainer>
         <SearchBoxForm onSubmit={submitHandler}>
           <SearchBox
             id="searchbox"
